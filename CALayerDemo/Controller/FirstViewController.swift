@@ -10,25 +10,24 @@ import UIKit
 
 class FirstViewController: UIViewController, CAAnimationDelegate {
     
+    func loadLineConfig(layer: CAShapeLayer, strokeEnd: CGFloat, color: UIColor) {
+        layer.lineWidth = 20
+        layer.lineCap = .round
+        layer.fillColor = nil
+        layer.strokeEnd = strokeEnd
+        let strokeColor = color.cgColor
+        layer.strokeColor = strokeColor
+    }
+    
     var shapeLayer: CAShapeLayer! {
         didSet {
-            shapeLayer.lineWidth = 20
-            shapeLayer.lineCap = .round
-            shapeLayer.fillColor = nil
-            shapeLayer.strokeEnd = 1
-            let strokeColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).cgColor
-            shapeLayer.strokeColor = strokeColor
+            loadLineConfig(layer: shapeLayer, strokeEnd: 1, color: #colorLiteral(red: 0.8078431373, green: 0.02745098039, blue: 0.3333333333, alpha: 1))
         }
     }
     
     var overShapeLayer: CAShapeLayer! {
         didSet {
-            overShapeLayer.lineWidth = 20
-            overShapeLayer.lineCap = .round
-            overShapeLayer.fillColor = nil
-            overShapeLayer.strokeEnd = 0
-            let strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-            overShapeLayer.strokeColor = strokeColor
+            loadLineConfig(layer: overShapeLayer, strokeEnd: 0, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         }
     }
     
@@ -51,7 +50,7 @@ class FirstViewController: UIViewController, CAAnimationDelegate {
             firstImageView.layer.borderWidth = 5
         }
     }
-  
+    
     @IBOutlet weak var takeMeButton: UIButton! {
         didSet {
             takeMeButton.layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -76,7 +75,7 @@ class FirstViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         gradientLayer = CAGradientLayer()
         view.layer.insertSublayer(gradientLayer, at: 0)
         
@@ -87,14 +86,18 @@ class FirstViewController: UIViewController, CAAnimationDelegate {
         view.layer.addSublayer(overShapeLayer)
         
     }
+    
+    
+    
     @IBAction func tapMeAction(_ sender: UIButton) {
-
+        
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.toValue = 1
         animation.duration = 1
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         animation.fillMode = CAMediaTimingFillMode.both
-        animation.isRemovedOnCompletion = false
+        animation.isRemovedOnCompletion = true
+        
         
         animation.delegate = self
         
@@ -103,9 +106,9 @@ class FirstViewController: UIViewController, CAAnimationDelegate {
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-         performSegue(withIdentifier: "showSecondScreen", sender: self)
+        performSegue(withIdentifier: "showSecondScreen", sender: self)
     }
     
-
+    
 }
 

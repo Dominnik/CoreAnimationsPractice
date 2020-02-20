@@ -15,24 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="250" translatesAutoresizingMaskIntoConstraints="NO" id="COE-bP-u1G">
-                                <rect key="frame" x="60" y="60" width="294" height="620"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="270" translatesAutoresizingMaskIntoConstraints="NO" id="COE-bP-u1G">
+                                <rect key="frame" x="60" y="60" width="294" height="634"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tOV-tl-jTs">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="294"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blog-shapes-square-windows" translatesAutoresizingMaskIntoConstraints="NO" id="qNg-rB-Wup">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="300"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="294"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="qNg-rB-Wup" secondAttribute="height" multiplier="1:1" id="5Hq-md-Z0E"/>
+                                                </constraints>
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="95Q-hS-tc6">
-                                        <rect key="frame" x="0.0" y="550" width="294" height="70"/>
+                                        <rect key="frame" x="0.0" y="564" width="294" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nj-7W-Ocx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Nj-7W-Ocx" customClass="CustomButton" customModule="CALayerDemo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="ejq-5u-FVG"/>
                                                 </constraints>
@@ -40,6 +42,11 @@
                                                 <state key="normal" title="Tap me!">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="tapMeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lvG-rc-G09"/>
                                                 </connections>
@@ -109,9 +116,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qTB-vI-SfC">
                                         <rect key="frame" x="40" y="566" width="334" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-Md-0pD">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-Md-0pD" customClass="CustomButton" customModule="CALayerDemo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="s3R-Pj-vbQ"/>
                                                 </constraints>
@@ -119,6 +125,11 @@
                                                 <state key="normal" title="Go Back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="goBackAction:" destination="79a-lJ-vyD" eventType="touchUpInside" id="AYV-Wl-vdS"/>
                                                 </connections>

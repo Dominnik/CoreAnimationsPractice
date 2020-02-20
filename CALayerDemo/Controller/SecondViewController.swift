@@ -10,25 +10,24 @@ import UIKit
 
 class SecondViewController: UIViewController, CAAnimationDelegate {
 
+    func roundLoadLineConfig(shapeLayer: CAShapeLayer, color: UIColor) {
+        shapeLayer.lineWidth = 10
+        shapeLayer.lineCap = .round
+        shapeLayer.fillColor = nil
+        shapeLayer.strokeEnd = 1
+        let strokeColor = color.cgColor
+        shapeLayer.strokeColor = strokeColor
+    }
+    
     var roundShapeLayer: CAShapeLayer! {
         didSet {
-            roundShapeLayer.lineWidth = 10
-            roundShapeLayer.lineCap = .round
-            roundShapeLayer.fillColor = nil
-            roundShapeLayer.strokeEnd = 1
-            let strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1).cgColor
-            roundShapeLayer.strokeColor = strokeColor
+            roundLoadLineConfig(shapeLayer: roundShapeLayer, color: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1))
         }
     }
     
     var overRoundShapeLayer: CAShapeLayer! {
         didSet {
-            overRoundShapeLayer.lineWidth = 10
-            overRoundShapeLayer.lineCap = .round
-            overRoundShapeLayer.fillColor = nil
-            overRoundShapeLayer.strokeEnd = 1
-            let strokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-            overRoundShapeLayer.strokeColor = strokeColor
+            roundLoadLineConfig(shapeLayer: overRoundShapeLayer, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         }
     }
     
@@ -62,7 +61,6 @@ class SecondViewController: UIViewController, CAAnimationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(delay)) {
             closure()
         }
-        
     }
     
     override func viewDidLayoutSubviews() {

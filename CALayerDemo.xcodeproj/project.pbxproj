@@ -61,6 +61,26 @@
 			path = VIew;
 			sourceTree = "<group>";
 		};
+		DB2940A123FECB9200C7A1DC /* Supportingg files */ = {
+			isa = PBXGroup;
+			children = (
+				DB40313923FC24B0008690CA /* AppDelegate.swift */,
+				DB40313B23FC24B0008690CA /* SceneDelegate.swift */,
+				DB40314723FC24B2008690CA /* Info.plist */,
+			);
+			path = "Supportingg files";
+			sourceTree = "<group>";
+		};
+		DB2940A223FECBD500C7A1DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB40313F23FC24B0008690CA /* Main.storyboard */,
+				DB40314423FC24B2008690CA /* LaunchScreen.storyboard */,
+				DB40314223FC24B2008690CA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		DB40312D23FC24B0008690CA = {
 			isa = PBXGroup;
 			children = (
@@ -80,14 +100,10 @@
 		DB40313823FC24B0008690CA /* CALayerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DB2940A223FECBD500C7A1DC /* Resources */,
+				DB2940A123FECB9200C7A1DC /* Supportingg files */,
 				DB2940A023FECB1100C7A1DC /* VIew */,
 				DB29409F23FECB0800C7A1DC /* Controller */,
-				DB40313923FC24B0008690CA /* AppDelegate.swift */,
-				DB40313B23FC24B0008690CA /* SceneDelegate.swift */,
-				DB40313F23FC24B0008690CA /* Main.storyboard */,
-				DB40314223FC24B2008690CA /* Assets.xcassets */,
-				DB40314423FC24B2008690CA /* LaunchScreen.storyboard */,
-				DB40314723FC24B2008690CA /* Info.plist */,
 			);
 			path = CALayerDemo;
 			sourceTree = "<group>";
@@ -314,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4QM5LYQNJ;
-				INFOPLIST_FILE = CALayerDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CALayerDemo/Supportingg files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B4QM5LYQNJ;
-				INFOPLIST_FILE = CALayerDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CALayerDemo/Supportingg files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

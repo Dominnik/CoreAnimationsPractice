@@ -33,21 +33,19 @@ class GradientView: UIView {
     
     func shapeLayer() {
         let shapeLayer = CAShapeLayer()
-        shapeLayer.path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: [.topLeft, .bottomRight], cornerRadii: size).cgPath
-        
+        shapeLayer.path = UIBezierPath(roundedRect: self.bounds,
+                                       byRoundingCorners: [.topLeft, .bottomRight],
+                                       cornerRadii: size).cgPath
         layer.mask = shapeLayer
     }
     
-
     override func layoutSubviews() {
         super.layoutSubviews()
         
         gradientLayer()
         shapeLayer()
-
     }
     
-
     override func prepareForInterfaceBuilder() {
         setNeedsLayout()
     }
