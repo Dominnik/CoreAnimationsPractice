@@ -9,6 +9,9 @@
 import UIKit
 
 class SecondViewController: UIViewController, CAAnimationDelegate {
+    
+//    private var replicatorLayer: CAReplicatorLayer!
+//    private var sourceLayer: CALayer!
 
     func roundLoadLineConfig(shapeLayer: CAShapeLayer, color: UIColor) {
         shapeLayer.lineWidth = 10
@@ -30,6 +33,7 @@ class SecondViewController: UIViewController, CAAnimationDelegate {
             roundLoadLineConfig(shapeLayer: overRoundShapeLayer, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         }
     }
+    @IBOutlet weak var indicatorView: UIView!
     
     @IBOutlet weak var secondImageView: UIImageView! {
         didSet {
@@ -49,8 +53,8 @@ class SecondViewController: UIViewController, CAAnimationDelegate {
     func configShapeLayer(_ shapeLayer: CAShapeLayer) {
         shapeLayer.frame = view.bounds
         let path = UIBezierPath()
-        path.addArc(withCenter: CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 + 85),
-                    radius: 100,
+        path.addArc(withCenter: CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 - 145),
+                    radius: 110,
                     startAngle: 0.0,
                     endAngle: 0.001,
                     clockwise: false)
@@ -62,7 +66,35 @@ class SecondViewController: UIViewController, CAAnimationDelegate {
             closure()
         }
     }
+   /*
+    override func viewWillLayoutSubviews() {
+        replicatorLayer.frame = self.view.bounds
+        replicatorLayer.position = self.view.center
+        
+        sourceLayer.frame = CGRect(x: 0, y: 0, width: 10, height: 40)
+        sourceLayer.backgroundColor = UIColor.white.cgColor
+        sourceLayer.position = self.view.center
+        sourceLayer.anchorPoint = CGPoint(x: 0, y: 5)
+    }
     
+    func startAnimation(delay: TimeInterval, replicates: Int) {
+        
+        replicatorLayer.instanceCount = replicates
+        let angle = CGFloat(2.0 * CGFloat.pi) / CGFloat(replicates)
+        replicatorLayer.instanceTransform = CATransform3DMakeRotation(angle, 0.0, 0.0, 1.0)
+        
+        replicatorLayer.instanceDelay = delay
+        
+        sourceLayer.opacity = 0
+        let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+        opacityAnimation.fromValue = 1
+        opacityAnimation.toValue = 0
+        opacityAnimation.duration = Double(replicates) * delay
+        opacityAnimation.repeatCount = Float.infinity
+        
+        sourceLayer.add(opacityAnimation, forKey: nil)
+    }
+    */
     override func viewDidLayoutSubviews() {
         
         configShapeLayer(roundShapeLayer)
@@ -71,7 +103,15 @@ class SecondViewController: UIViewController, CAAnimationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
+        replicatorLayer = CAReplicatorLayer()
+        sourceLayer = CALayer()
         
+        self.view.layer.addSublayer(replicatorLayer)
+        replicatorLayer.addSublayer(sourceLayer)
+        
+        startAnimation(delay: 0.1, replicates: 30)
+        */
         roundShapeLayer = CAShapeLayer()
         view.layer.addSublayer(roundShapeLayer)
         

@@ -12,11 +12,13 @@ import UIKit
 class GradientView: UIView {
     
     private var size = CGSize()
+    
     @IBInspectable var cornerRadiiSize: CGFloat = 0 {
         didSet {
             size = CGSize(width: cornerRadiiSize, height: cornerRadiiSize)
         }
     }
+    
     
     func gradientLayer() {
             let gradientLayer = CAGradientLayer()
@@ -38,6 +40,8 @@ class GradientView: UIView {
                                        cornerRadii: size).cgPath
         layer.mask = shapeLayer
     }
+    
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
